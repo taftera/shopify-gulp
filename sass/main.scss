@@ -1,0 +1,13 @@
+{% assign color_orange = '#ffcc00' %}
+{% assign color_black = '#808080' %}
+// {% assign test_true = true %}
+// /* taftera */
+body {
+  color: {{ color_orange }};
+  // border: 2px solid #ffffff;
+}
+/* {% if test_true == true %} */
+body {
+  background-color: {{color_black}};
+}
+/* {% endif %} */
