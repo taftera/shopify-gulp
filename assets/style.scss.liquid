@@ -1,0 +1,70 @@
+@charset "UTF-8";
+
+/* -------------------------------------
+CUSTOM COLOR & FONT VARIABLES FROM GBX
+------------------------------------- */
+
+{%- assign c_cinnabar = '#ff544a' -%} /* color changed 210521 - e6574d */
+{%- assign gutter = '24px' -%} 
+/* -------------------------------------
+END OF CUSTOM MISC VARIABLES FROM GBX
+------------------------------------- */
+
+
+{%- comment -%}font_title{%- endcomment -%}
+
+{%- assign fonts_font_title_display = 'auto' -%}
+
+{%- comment -%}Normal{%- endcomment -%}
+
+{%- assign fonts_font_title_family = 'lust-display, serif' -%}
+{#  {%- assign fonts_font_title_style = settings.font_title.style -%}  #}
+
+{%- assign fonts_weight_adjustment_default = 700 -%}
+{%- if fonts_font_title_weight > 700 -%}
+{%- assign fonts_weight_adjustment_default = fonts_font_title_weight -%}
+{%- endif -%}
+
+/**
+* 1. Remove the bottom border in Chrome 57-
+* 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+*/
+abbr[title] {
+  border-bottom: none;
+  /* 1 */
+  text-decoration: underline;
+  /* 2 */
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted;
+  /* 2 */
+}
+
+@media screen and (max-width: 959px) {
+  .product-menu-buttons-content, .product-menu-slideout, .product-alert-content, .section-list-collections, .site-header-wrapper, .section-collection, .section-cart, .section-blog, .site-footer-item, .pxs-announcement-bar-text-mobile, .page, .search-results-groups, .search-section-form, .index-wrapper .shopify-section, .template-account-reset, .template-account-register, .template-account-order, .template-account-login, .template-account-addresses, .template-account-activate, .template-account {
+    padding-right: {{ gutter }};
+    padding-left: {{ gutter }};
+  }
+}
+
+.collection-menu-slideout, .cart-menu-slideout {
+  display: none;
+  max-height: 50vh;
+  overflow-y: hidden;
+  background-color: {{ settings.color_background }};
+  border-bottom: 1px solid {{ color_border }};
+  outline: 0;
+}
+
+@media screen and (min-width: 960px) {
+  .collection-menu-highlight .collection-menu-button-sortby,
+.collection-menu-highlight .collection-menu-button-cancel, .cart-menu-highlight .cart-menu-button-calculate-shipping,
+.cart-menu-highlight .cart-menu-button-cancel-shipping {
+    color: {{ settings.color_background }};
+    background-color: {{ settings.color_background | color_modify: 'alpha', 0.2 }};
+  }
+  .collection-menu-highlight .collection-menu-button-sortby:not(:disabled):hover,
+.collection-menu-highlight .collection-menu-button-cancel:not(:disabled):hover, .cart-menu-highlight .cart-menu-button-calculate-shipping:not(:disabled):hover,
+.cart-menu-highlight .cart-menu-button-cancel-shipping:not(:disabled):hover {
+    background: {{ settings.color_background | color_modify: 'alpha', 0.1 }};
+  }
+}
